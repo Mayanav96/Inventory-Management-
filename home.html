@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %} {{ title }} - Inventory Management {% endblock %}</title>
+        {% if title == 'ProductMovement' %}
+            <style>
+                .slide-container {
+                    width: 50%;
+                }
+                .slider {
+                    -webkit-appearance: none;
+                    width: 50%;
+                    height: 10px;
+                    border-radius: 5px;
+                    background: #d3d3d3;
+                    outline: none;
+                    opacity: 0.7;
+                    -webkit-transition: .2s;
+                    transition: opacity .2s;
+                }
+                .slider:hover {
+                    opacity: 1;
+                }
+                .slider::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 23px;
+                    height: 24px;
+                    border: 0;
+                    cursor: pointer;
+                }
+                .slider::-moz-range-thumb {
+                    width: 23px;
+                    height: 24px;
+                    border: 0;
+                    cursor: pointer;
+                }
+            </style>
+        {% endif %}
+        <style>	
+            .container { padding-top: 90px; }
+        </style>
+    </head>
+    <body>
+            <div>
+                <ul class="navbar-nav mr-auto bg-dark alert-light">{{ title }}</ul>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary" onclick="location.reload();location.href='{{ link.index }}'">Summary</button>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary" onclick="location.reload();location.href='{{ link.location }}'">Location</button>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary" onclick="location.reload();location.href='{{ link.product }}'">Products</button>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-primary" onclick="location.reload();location.href='{{ link.movement }}'">Logistics</button>
+                </div>
+            </div>
+	    <!--</nav>-->
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
